@@ -121,6 +121,8 @@ const chatWorkflow = createUnifiedChatWorkflow(agent);
 // ---------- SERVER ----------
 const USER_ID = "mohammed-alith" as const;
 
+const PORT = Number(process.env.PORT) || 5000;
+
 // Match the frontend type shape
 interface UIMessage {
   role: "user" | "assistant" | "system" | "function" | "tool";
@@ -138,7 +140,7 @@ interface UIMessage {
       "chat-workflow": chatWorkflow,
     },
     server: honoServer({
-      port:5000,
+      port:port,
      
       configureApp: (app) => {
         // 1) List conversations (history UI)
