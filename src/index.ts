@@ -121,7 +121,7 @@ const chatWorkflow = createUnifiedChatWorkflow(agent);
 // ---------- SERVER ----------
 const USER_ID = "mohammed-alith" as const;
 
-const PORT = Number(process.env.PORT) || 5000;
+
 
 // Match the frontend type shape
 interface UIMessage {
@@ -132,6 +132,10 @@ interface UIMessage {
   // Ensure pgvector + documents table exist
   await initDocumentVectorTable();
 
+
+ const PORT = Number(process.env.PORT) || 5000;
+
+
   new VoltAgent({
     agents: {
       "sample-app": agent,
@@ -140,7 +144,8 @@ interface UIMessage {
       "chat-workflow": chatWorkflow,
     },
     server: honoServer({
-      port:port,
+      port:PORT,
+      
      
       configureApp: (app) => {
         // 1) List conversations (history UI)
