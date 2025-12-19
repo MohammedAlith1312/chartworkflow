@@ -36,12 +36,12 @@ export const validationGuardrail = createInputGuardrail({
       .split(/\s+/)
       .filter(Boolean).length;
 
-    if (wordCount < 1) {
+    if (wordCount < 2) {
       return {
         pass: false,
         action: "block",
         message:
-          "Your message does not contain enough meaningful content. Please add more details and try again.",
+          "please provide Words more than one on chat",
         metadata: { wordCount },
       };
     }

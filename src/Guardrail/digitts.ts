@@ -19,7 +19,7 @@ export const digitGuardrail = createOutputGuardrail({
         (args.state.redactionCount ?? 0) + matches.length;
     }
 
-    const redacted = chunk.replace(/\d{10,}/g, "[digits]");
+    const redacted = chunk.replace(/\d{4,}/g, "[digits]");
     return { ...part, text: redacted };
   },
 
